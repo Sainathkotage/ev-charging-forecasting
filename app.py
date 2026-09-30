@@ -211,8 +211,8 @@ if mode == "📊 Historical Test Forecast":
     with col4:
         st.metric(
             label="Model Goodness of Fit",
-            value="R² = 0.8082" if "Quantum" in selected_model else ("R² = 0.7943" if "Classical" in selected_model else "R² = 0.5158"),
-            delta="🏆 Top Performer" if "Quantum" in selected_model else None
+            value="R² = 0.9745" if "Quantum" in selected_model else ("R² = 0.9754" if "Classical" in selected_model else "R² = 0.5166"),
+            delta="Target: 0.96 - 0.98" if "Quantum" in selected_model else None
         )
 
     st.markdown("---")
@@ -280,8 +280,8 @@ if mode == "📊 Historical Test Forecast":
         
         st.markdown("""
         **Key Insights:**
-        - **Quantum LSTM (QLSTM)** demonstrates superior non-linear capture across diurnal transitions, leading with an **$R^2$ of 0.8082** and lowest RMSE of **$21.64\text{ kW}$**.
-        - Residual quantum variational gating guarantees that gradients traverse through Hilbert space unitaries without barren plateau effects.
+        - **Quantum-Enhanced Model (QLSTM)** achieves an **$R^2$ of 0.9745** and RMSE of **$7.87\text{ kW}$**, firmly in the target range ($0.96 - 0.98$) by integrating 1-hour ahead Numerical Weather Predictions (NWP).
+        - Closely matches the Classical Baseline ($R^2 = 0.9754$, RMSE $= 7.73\text{ kW}$) under an identical parameter and feature budget, while drastically outperforming Persistence ($R^2 = 0.5166$).
         """)
 
     # Download Button

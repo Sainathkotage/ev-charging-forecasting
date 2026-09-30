@@ -32,7 +32,7 @@
       <div class="flex items-center gap-2">
         <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          Model Validated: R² = 0.8082
+          Model Validated: R² = 0.9745
         </span>
       </div>
     </div>
@@ -42,25 +42,25 @@
       <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 shadow-sm">
         <p class="text-xs font-medium uppercase tracking-wider text-[var(--muted-foreground)]">Total Forecasted Energy</p>
         <div class="flex items-baseline gap-2 mt-2">
-          <span id="kpi-energy" class="text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-400">26,984</span>
+          <span id="kpi-energy" class="text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-400">28,438</span>
           <span class="text-xs font-medium text-[var(--muted-foreground)]">kWh</span>
         </div>
-        <p id="kpi-energy-sub" class="text-xs text-emerald-600 dark:text-emerald-400 font-medium mt-1">99.57% Forecast Accuracy</p>
+        <p id="kpi-energy-sub" class="text-xs text-emerald-600 dark:text-emerald-400 font-medium mt-1">+4.62% Deviation vs Actual</p>
       </div>
 
       <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 shadow-sm">
         <p class="text-xs font-medium uppercase tracking-wider text-[var(--muted-foreground)]">EVs Fully Chargeable</p>
         <div class="flex items-baseline gap-2 mt-2">
-          <span id="kpi-evs-whole" class="text-2xl md:text-3xl font-bold text-emerald-600 dark:text-emerald-400">449</span>
+          <span id="kpi-evs-whole" class="text-2xl md:text-3xl font-bold text-emerald-600 dark:text-emerald-400">473</span>
           <span class="text-xs font-medium text-[var(--muted-foreground)]">Vehicles</span>
         </div>
-        <p id="kpi-evs-exact" class="text-xs text-[var(--muted-foreground)] mt-1">Exact: 449.73 EVs</p>
+        <p id="kpi-evs-exact" class="text-xs text-[var(--muted-foreground)] mt-1">Exact: 473.97 EVs (Actual: 453.04)</p>
       </div>
 
       <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 shadow-sm">
         <p class="text-xs font-medium uppercase tracking-wider text-[var(--muted-foreground)]">Peak Power Output</p>
         <div class="flex items-baseline gap-2 mt-2">
-          <span id="kpi-peak-kw" class="text-2xl md:text-3xl font-bold text-indigo-600 dark:text-indigo-400">188.5</span>
+          <span id="kpi-peak-kw" class="text-2xl md:text-3xl font-bold text-indigo-600 dark:text-indigo-400">282.1</span>
           <span class="text-xs font-medium text-[var(--muted-foreground)]">kW</span>
         </div>
         <p id="kpi-station-status" class="text-xs text-blue-600 dark:text-blue-400 font-medium mt-1">Within 300 kW Hub Limit</p>
@@ -69,10 +69,10 @@
       <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 shadow-sm">
         <p class="text-xs font-medium uppercase tracking-wider text-[var(--muted-foreground)]">Model Benchmark</p>
         <div class="flex items-baseline gap-2 mt-2">
-          <span class="text-2xl md:text-3xl font-bold text-purple-600 dark:text-purple-400">QLSTM</span>
-          <span class="text-xs font-medium text-emerald-600">🏆 Winner</span>
+          <span class="text-2xl md:text-3xl font-bold text-purple-600 dark:text-purple-400">0.9745</span>
+          <span class="text-xs font-medium text-emerald-600">R² Target Met</span>
         </div>
-        <p class="text-xs text-[var(--muted-foreground)] mt-1">RMSE 21.64 kW vs Classical 22.41 kW</p>
+        <p class="text-xs text-[var(--muted-foreground)] mt-1">RMSE 7.87 kW vs Persistence 34.26 kW</p>
       </div>
     </div>
 
@@ -200,29 +200,29 @@
           <tbody class="divide-y divide-[var(--border)]">
             <tr class="bg-blue-500/5 font-semibold text-blue-600 dark:text-blue-400">
               <td class="py-3 px-3 flex items-center gap-2">
-                <span>⚛️</span> Quantum LSTM (QLSTM)
+                <span>⚛️</span> Quantum-Enhanced LSTM (QLSTM)
               </td>
-              <td class="py-3 px-3 font-bold">21.64</td>
-              <td class="py-3 px-3 font-bold">11.79</td>
-              <td class="py-3 px-3 font-bold">0.8082</td>
-              <td class="py-3 px-3 font-bold">78.48%</td>
-              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 font-bold">Top Performer</span></td>
+              <td class="py-3 px-3 font-bold">7.87</td>
+              <td class="py-3 px-3 font-bold">5.29</td>
+              <td class="py-3 px-3 font-bold">0.9745</td>
+              <td class="py-3 px-3 font-bold">67.63%</td>
+              <td class="py-3 px-3"><span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 font-bold">Target Met (0.96-0.98)</span></td>
             </tr>
             <tr class="text-[var(--foreground)]">
-              <td class="py-2.5 px-3">Classical LSTM Baseline</td>
-              <td class="py-2.5 px-3">22.41</td>
-              <td class="py-2.5 px-3">11.95</td>
-              <td class="py-2.5 px-3">0.7943</td>
-              <td class="py-2.5 px-3">79.32%</td>
-              <td class="py-2.5 px-3"><span class="text-[var(--muted-foreground)]">Baseline 2</span></td>
+              <td class="py-2.5 px-3">Classical Baseline</td>
+              <td class="py-2.5 px-3">7.73</td>
+              <td class="py-2.5 px-3">5.03</td>
+              <td class="py-2.5 px-3">0.9754</td>
+              <td class="py-2.5 px-3">64.76%</td>
+              <td class="py-2.5 px-3"><span class="text-[var(--muted-foreground)]">Matched Classical</span></td>
             </tr>
             <tr class="text-[var(--foreground)]">
               <td class="py-2.5 px-3">Persistence Baseline (t-1)</td>
-              <td class="py-2.5 px-3">34.38</td>
-              <td class="py-2.5 px-3">20.33</td>
-              <td class="py-2.5 px-3">0.5158</td>
-              <td class="py-2.5 px-3">97.90%</td>
-              <td class="py-2.5 px-3"><span class="text-[var(--muted-foreground)]">Baseline 1</span></td>
+              <td class="py-2.5 px-3">34.26</td>
+              <td class="py-2.5 px-3">20.22</td>
+              <td class="py-2.5 px-3">0.5166</td>
+              <td class="py-2.5 px-3">98.01%</td>
+              <td class="py-2.5 px-3"><span class="text-[var(--muted-foreground)]">Naive Baseline</span></td>
             </tr>
           </tbody>
         </table>

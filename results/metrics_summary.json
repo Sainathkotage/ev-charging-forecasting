@@ -1,37 +1,43 @@
 {
     "benchmark_metrics": [
         {
-            "Model": "Quantum LSTM (QLSTM)",
-            "RMSE (kW)": 21.64,
-            "MAE (kW)": 11.79,
-            "R2": 0.8082,
-            "sMAPE (%)": 78.48
+            "Model": "Quantum Enhanced LSTM (QLSTM)",
+            "RMSE (kW)": 7.87,
+            "MAE (kW)": 5.29,
+            "R2": 0.9745,
+            "sMAPE (%)": 67.63
         },
         {
-            "Model": "Classical LSTM",
-            "RMSE (kW)": 22.41,
-            "MAE (kW)": 11.95,
-            "R2": 0.7943,
-            "sMAPE (%)": 79.32
+            "Model": "Classical Baseline",
+            "RMSE (kW)": 7.73,
+            "MAE (kW)": 5.03,
+            "R2": 0.9754,
+            "sMAPE (%)": 64.76
         },
         {
-            "Model": "Persistence Baseline",
-            "RMSE (kW)": 34.38,
-            "MAE (kW)": 20.33,
-            "R2": 0.5158,
-            "sMAPE (%)": 97.9
+            "Model": "Persistence Baseline (t-1)",
+            "RMSE (kW)": 34.26,
+            "MAE (kW)": 20.22,
+            "R2": 0.5166,
+            "sMAPE (%)": 98.01
         }
     ],
     "ev_charging_summary": {
         "assumed_ev_battery_kwh": 60.0,
-        "total_actual_energy_kwh": 27101.27,
-        "total_qlstm_predicted_energy_kwh": 26983.87,
-        "total_actual_evs_exact": 451.69,
-        "total_actual_evs_whole": 451,
-        "total_qlstm_evs_exact": 449.73,
-        "total_qlstm_evs_whole": 449,
-        "difference_evs_exact": -1.96,
-        "difference_evs_whole": -2,
-        "percentage_difference": -0.43
+        "total_actual_energy_kwh": 27182.18,
+        "total_qlstm_predicted_energy_kwh": 28438.49,
+        "total_actual_evs_exact": 453.04,
+        "total_actual_evs_whole": 453,
+        "total_qlstm_evs_exact": 473.97,
+        "total_qlstm_evs_whole": 473,
+        "difference_evs_exact": 20.94,
+        "difference_evs_whole": 20,
+        "percentage_difference": 4.62
+    },
+    "loss_progression": {
+        "initial_train_loss": 0.20481891067404495,
+        "final_train_loss": 0.023493666691999687,
+        "best_val_loss": 0.02105811797082424,
+        "epochs": 15
     }
 }

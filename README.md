@@ -69,19 +69,19 @@ The QLSTM model predicts renewable generation $1\text{ hour ahead}$ using:
 
 ## 📊 Benchmark Results
 
-### 1. Renewable Generation Forecasting (1-Hour Ahead)
-Evaluated on an out-of-sample chronological test set:
+### 1. Renewable Generation Forecasting (1-Hour Ahead, R² Target: 0.96 - 0.98)
+Evaluated on an out-of-sample chronological test set with 1-hour ahead Numerical Weather Predictions (NWP):
 
-| Model | RMSE ($kW$) | MAE ($kW$) | $R^2$ Score | sMAPE (%) |
+| Model | RMSE ($kW$) ↓ | MAE ($kW$) ↓ | $R^2$ Score ↑ | sMAPE (%) ↓ |
 | :--- | :---: | :---: | :---: | :---: |
-| **Quantum LSTM (QLSTM)** 🏆 | **21.64** | **11.79** | **0.8082** | **78.48%** |
-| **Classical LSTM** | 22.41 | 11.95 | 0.7943 | 79.32% |
-| **Persistence Baseline** | 34.38 | 20.33 | 0.5158 | 97.90% |
+| **Quantum-Enhanced LSTM (QLSTM)** | **7.87** | **5.29** | **0.9745** | **67.63%** |
+| **Classical Baseline** | 7.73 | 5.03 | 0.9754 | 64.76% |
+| **Persistence Baseline ($t-1$)** | 34.26 | 20.22 | 0.5166 | 98.01% |
 
 ### 2. EV Fleet Charging Estimation (60 kWh Battery)
-- **Total Actual Generation**: $27,101.3\text{ kWh}$ $\to$ **$451.69$ EVs** ($451$ whole EVs)
-- **Total QLSTM Forecast**: $26,983.9\text{ kWh}$ $\to$ **$449.73$ EVs** ($449$ whole EVs)
-- **Forecasting Deviation**: **$-0.43\%$** error margin (within $\pm 2$ EVs over the test period).
+- **Total Actual Generation**: $27,182.18\text{ kWh}$ $\to$ **$453.04$ EVs** ($453$ whole EVs)
+- **Total Quantum Forecast**: $28,438.49\text{ kWh}$ $\to$ **$473.97$ EVs** ($473$ whole EVs)
+- **Forecasting Deviation**: **$+4.62\%$** error margin ($+20$ whole EVs over the test period).
 - Provides critical lookahead for distribution system operators to schedule EV smart charging during solar surplus hours.
 
 ---
