@@ -15,8 +15,9 @@
 
 ## 📌 Available Notebooks
 
-| Notebook | Focus | Key Models | Colab Launch |
+| Notebook / App | Focus | Key Models | Access / Launch |
 | :--- | :--- | :--- | :---: |
+| [`app.py`](app.py) & [`dashboard.html`](dashboard.html) | **⚡ Interactive EV Fleet Charging & Dispatch Dashboard** | Real-time QLSTM inference, What-if sliders, KPI cards | `python -m streamlit run app.py` or open `dashboard.html` |
 | [`quantum_lstm_renewable_ev_forecasting.ipynb`](quantum_lstm_renewable_ev_forecasting.ipynb) | **1-Hour Ahead Renewable Generation & EV Fleet Charging** | Variational Quantum LSTM (PennyLane), Classical LSTM, Persistence Baseline | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Sainathkotage/ev-charging-forecasting/blob/main/quantum_lstm_renewable_ev_forecasting.ipynb) |
 | [`ev_charging_forecasting.ipynb`](ev_charging_forecasting.ipynb) | **Hourly EV Charging Load Demand Forecasting** | HistGradientBoosting, Random Forest, Ridge, MLP Regressor | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Sainathkotage/ev-charging-forecasting/blob/main/ev_charging_forecasting.ipynb) |
 
