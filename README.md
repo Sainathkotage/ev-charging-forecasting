@@ -1,6 +1,6 @@
 # ⚡ Electric Vehicle (EV) Charging Demand Forecasting
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_GITHUB_USERNAME/ev-charging-forecasting/blob/main/ev_charging_forecasting.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Sainathkotage/ev-charging-forecasting/blob/main/ev_charging_forecasting.ipynb)
 [![Python Version](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Framework](https://img.shields.io/badge/scikit--learn-1.3%2B-orange.svg)](https://scikit-learn.org/)
@@ -141,7 +141,7 @@ By combining accurate load forecasting with co-located $250\text{ kW}$ solar gen
 ### Option A: Run in Google Colab (Recommended)
 1. Click the badge below:
 
-   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_GITHUB_USERNAME/ev-charging-forecasting/blob/main/ev_charging_forecasting.ipynb)
+   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Sainathkotage/ev-charging-forecasting/blob/main/ev_charging_forecasting.ipynb)
 
 2. In Google Colab, select **Runtime** > **Run all** (`Ctrl + F9`).
 3. The notebook will automatically set up dependencies, generate or load data, train the models, and render interactive diagnostic charts!
@@ -149,7 +149,7 @@ By combining accurate load forecasting with co-located $250\text{ kW}$ solar gen
 ### Option B: Run Locally
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/YOUR_GITHUB_USERNAME/ev-charging-forecasting.git
+   git clone https://github.com/Sainathkotage/ev-charging-forecasting.git
    cd ev-charging-forecasting
    ```
 

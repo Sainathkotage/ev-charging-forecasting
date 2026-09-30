@@ -35,7 +35,7 @@ def build_notebook():
 
     # 1. Header & Badges
     cells.append(make_markdown_cell(r"""# ⚡ Electric Vehicle (EV) Charging Load & Demand Forecasting
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_GITHUB_USERNAME/ev-charging-forecasting/blob/main/ev_charging_forecasting.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Sainathkotage/ev-charging-forecasting/blob/main/ev_charging_forecasting.ipynb)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python: 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
 
