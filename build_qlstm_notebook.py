@@ -8,7 +8,7 @@ import json
 
 def make_markdown_cell(source_lines):
     if isinstance(source_lines, str):
-        source_lines = [line + "\n" for line in source_lines.strip().split("\n")]
+        source_lines = [line + "\n" for line in source_lines.strip().splitlines()]
         if source_lines:
             source_lines[-1] = source_lines[-1].rstrip("\n")
     return {
@@ -19,7 +19,7 @@ def make_markdown_cell(source_lines):
 
 def make_code_cell(source_lines):
     if isinstance(source_lines, str):
-        source_lines = [line + "\n" for line in source_lines.strip().split("\n")]
+        source_lines = [line + "\n" for line in source_lines.strip().splitlines()]
         if source_lines:
             source_lines[-1] = source_lines[-1].rstrip("\n")
     return {
@@ -229,12 +229,15 @@ raw_df = load_or_create_dataset(DATASET_FILENAME)"""))
 print("=" * 60)
 print("📊 DATASET INSPECTION")
 print("=" * 60)
-print(f"Shape: {raw_df.shape[0]} rows, {raw_df.shape[1]} columns\n")
+print(f"Shape: {raw_df.shape[0]} rows, {raw_df.shape[1]} columns")
+print()
 print("Column Data Types:")
 print(raw_df.dtypes)
-print("\nMissing Values Count:")
+print()
+print("Missing Values Count:")
 print(raw_df.isnull().sum())
-print("\nFirst 5 Records:")
+print()
+print("First 5 Records:")
 display(raw_df.head())"""))
 
     cells.append(make_code_cell("""# 🛠️ Step 2.2: Automated Column Detection & Chronological Indexing
@@ -351,7 +354,8 @@ val_loader = DataLoader(TensorDataset(torch.from_numpy(X_val_seq), torch.from_nu
 test_loader = DataLoader(TensorDataset(torch.from_numpy(X_test_seq), torch.from_numpy(y_test_seq)),
                          batch_size=BATCH_SIZE, shuffle=False)
 
-print(f"\nSequence Tensor Shapes:")
+print()
+print("Sequence Tensor Shapes:")
 print(f"X_train: {X_train_seq.shape} -> y_train: {y_train_seq.shape}")
 print(f"X_val:   {X_val_seq.shape} -> y_val:   {y_val_seq.shape}")
 print(f"X_test:  {X_test_seq.shape} -> y_test:  {y_test_seq.shape}")"""))
@@ -832,8 +836,8 @@ with open(metrics_json_path, "w") as f:
     json.dump(summary_dict, f, indent=4)
 print(f"✅ Metrics JSON saved:      '{metrics_json_path}'")
 
-# 3. List all files in results/
-print("\n📂 Saved Artifacts in 'results/' Directory:")
+print()
+print("📂 Saved Artifacts in 'results/' Directory:")
 for item in os.listdir("results"):
     item_path = os.path.join("results", item)
     size_kb = os.path.getsize(item_path) / 1024
