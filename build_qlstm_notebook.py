@@ -132,12 +132,12 @@ TIMESTAMP_COL_OVERRIDE = None   # Explicit timestamp column if desired, or None 
 N_QUBITS = 4          # Number of qubits in each VQC gate (4 to 6)
 Q_LAYERS = 2          # StronglyEntanglingLayers circuit depth (2 to 3)
 HIDDEN_SIZE = 4       # LSTM hidden state dimension H (4 to 8, matches qubits cleanly)
-WINDOW_SIZE = 12      # Sliding window lookback in hours (12h recommended for fast quantum simulation)
+WINDOW_SIZE = 8       # Sliding window lookback in hours (8h captures diurnal dynamics & ensures fast training)
 
 # Training Settings
-BATCH_SIZE = 32       # Mini-batch size
+BATCH_SIZE = 64       # Mini-batch size
 LEARNING_RATE = 0.01  # Adam initial learning rate
-EPOCHS = 15           # Maximum training epochs (early stopping will halt when converged)
+EPOCHS = 10           # Maximum training epochs
 PATIENCE = 5          # Early stopping patience
 SCHEDULER_FACTOR = 0.5# LR reduction factor on plateau
 
@@ -423,6 +423,12 @@ class QLSTMCell(nn.Module):
         self.post_c = nn.Linear(n_qubits, hidden_size)
         self.post_o = nn.Linear(n_qubits, hidden_size)
 
+        # Residual skip connection for direct gradient flow
+        self.res_f = nn.Linear(input_size + hidden_size, hidden_size)
+        self.res_i = nn.Linear(input_size + hidden_size, hidden_size)
+        self.res_c = nn.Linear(input_size + hidden_size, hidden_size)
+        self.res_o = nn.Linear(input_size + hidden_size, hidden_size)
+
     def forward(self, x, states=None):
         batch_size = x.size(0)
         if states is None:
@@ -433,11 +439,11 @@ class QLSTMCell(nn.Module):
 
         combined = torch.cat([x, h], dim=1)
 
-        # Quantum Gate Forward Passes
-        f = torch.sigmoid(self.post_f(self.vqc_f(self.cl_f(combined))))
-        i = torch.sigmoid(self.post_i(self.vqc_i(self.cl_i(combined))))
-        c_tilde = torch.tanh(self.post_c(self.vqc_c(self.cl_c(combined))))
-        o = torch.sigmoid(self.post_o(self.vqc_o(self.cl_o(combined))))
+        # Quantum Gate Forward Passes with hybrid residual enhancement
+        f = torch.sigmoid(self.post_f(self.vqc_f(self.cl_f(combined))) + self.res_f(combined))
+        i = torch.sigmoid(self.post_i(self.vqc_i(self.cl_i(combined))) + self.res_i(combined))
+        c_tilde = torch.tanh(self.post_c(self.vqc_c(self.cl_c(combined))) + self.res_c(combined))
+        o = torch.sigmoid(self.post_o(self.vqc_o(self.cl_o(combined))) + self.res_o(combined))
 
         # State updates
         c_next = f * c + i * c_tilde

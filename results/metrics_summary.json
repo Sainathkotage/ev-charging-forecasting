@@ -1,0 +1,37 @@
+{
+    "benchmark_metrics": [
+        {
+            "Model": "Quantum LSTM (QLSTM)",
+            "RMSE (kW)": 21.64,
+            "MAE (kW)": 11.79,
+            "R2": 0.8082,
+            "sMAPE (%)": 78.48
+        },
+        {
+            "Model": "Classical LSTM",
+            "RMSE (kW)": 22.41,
+            "MAE (kW)": 11.95,
+            "R2": 0.7943,
+            "sMAPE (%)": 79.32
+        },
+        {
+            "Model": "Persistence Baseline",
+            "RMSE (kW)": 34.38,
+            "MAE (kW)": 20.33,
+            "R2": 0.5158,
+            "sMAPE (%)": 97.9
+        }
+    ],
+    "ev_charging_summary": {
+        "assumed_ev_battery_kwh": 60.0,
+        "total_actual_energy_kwh": 27101.27,
+        "total_qlstm_predicted_energy_kwh": 26983.87,
+        "total_actual_evs_exact": 451.69,
+        "total_actual_evs_whole": 451,
+        "total_qlstm_evs_exact": 449.73,
+        "total_qlstm_evs_whole": 449,
+        "difference_evs_exact": -1.96,
+        "difference_evs_whole": -2,
+        "percentage_difference": -0.43
+    }
+}

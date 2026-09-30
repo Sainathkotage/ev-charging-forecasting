@@ -73,13 +73,14 @@ Evaluated on an out-of-sample chronological test set:
 
 | Model | RMSE ($kW$) | MAE ($kW$) | $R^2$ Score | sMAPE (%) |
 | :--- | :---: | :---: | :---: | :---: |
-| **Quantum LSTM (QLSTM)** 🏆 | **25.56** | **17.79** | **0.733** | **91.0%** |
-| **Classical LSTM** | 26.13 | 17.13 | 0.721 | 82.8% |
-| **Persistence Baseline** | 34.38 | 20.27 | 0.518 | 97.7% |
+| **Quantum LSTM (QLSTM)** 🏆 | **21.64** | **11.79** | **0.8082** | **78.48%** |
+| **Classical LSTM** | 22.41 | 11.95 | 0.7943 | 79.32% |
+| **Persistence Baseline** | 34.38 | 20.33 | 0.5158 | 97.90% |
 
 ### 2. EV Fleet Charging Estimation (60 kWh Battery)
-- **Total Actual Generation**: $27,015.6\text{ kWh}$ $\to$ **$450.26$ EVs** ($450$ whole EVs)
-- **Total QLSTM Forecast**: $34,270.2\text{ kWh}$ $\to$ **$571.17$ EVs** ($571$ whole EVs)
+- **Total Actual Generation**: $27,101.3\text{ kWh}$ $\to$ **$451.69$ EVs** ($451$ whole EVs)
+- **Total QLSTM Forecast**: $26,983.9\text{ kWh}$ $\to$ **$449.73$ EVs** ($449$ whole EVs)
+- **Forecasting Deviation**: **$-0.43\%$** error margin (within $\pm 2$ EVs over the test period).
 - Provides critical lookahead for distribution system operators to schedule EV smart charging during solar surplus hours.
 
 ---
