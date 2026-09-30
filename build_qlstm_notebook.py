@@ -511,7 +511,48 @@ print("🏆 UPGRADED TEST SET BENCHMARK RESULTS (R² TARGET: 0.96 - 0.98)")
 print("=" * 70)
 display(eval_df)"""))
 
-    cells.append(make_code_cell("""# 📊 Step 5.2: Diagnostic Plots - Full Test Window & 7-Day Zoom
+    cells.append(make_code_cell("""# 📋 Step 5.2: 1-Hour Ahead QNN / QLSTM Error Summary & Slide Table
+abs_err = np.abs(y_test_actual - y_pred_qlstm)
+pos_mask = y_test_actual > 1.0
+mape = float(np.mean(np.abs(y_test_actual[pos_mask] - y_pred_qlstm[pos_mask]) / y_test_actual[pos_mask]) * 100.0) if np.sum(pos_mask) > 0 else 0.0
+mean_act = float(np.mean(y_test_actual))
+norm_mae = float((mq[1] / mean_act) * 100.0)
+norm_rmse = float((mq[0] / mean_act) * 100.0)
+
+print("------------------------------------------")
+print("1-HOUR AHEAD QNN RESULTS")
+print("------------------------------------------")
+print(f"MAE                  : {mq[1]:.4f}")
+print(f"MAPE                 : {mape:.4f}%")
+print(f"SMAPE                : {mq[3]:.4f}%")
+print(f"Normalized MAE       : {norm_mae:.4f}%")
+print(f"Normalized RMSE      : {norm_rmse:.4f}%")
+print(f"R²                   : {mq[2]:.6f}")
+print("------------------------------------------")
+
+# Construct t+1 Slide Presentation Table
+# Columns: datetime, Actual_Renewable, QNN_Predicted_Renewable, Absolute_Error, Percentage_Error, Num_EVs_Charged
+pct_err = np.zeros_like(y_test_actual)
+pos_act_mask = y_test_actual > 1e-4
+pct_err[pos_act_mask] = (abs_err[pos_act_mask] / y_test_actual[pos_act_mask]) * 100.0
+num_evs_charged = y_pred_qlstm / EV_BATTERY_KWH
+
+slide_table_df = pd.DataFrame({
+    'datetime': test_timestamps.strftime('%Y-%m-%d %H:%M:%S'),
+    'Actual_Renewable': np.round(y_test_actual, 1),
+    'QNN_Predicted_Renewable': np.round(y_pred_qlstm, 6),
+    'Absolute_Error': np.round(abs_err, 6),
+    'Percentage_Error': np.round(pct_err, 6),
+    'Num_EVs_Charged': np.round(num_evs_charged, 6)
+})
+
+avg_evs_per_hour = float(np.mean(num_evs_charged))
+print(f"Average number of EVs that can be charged per hour: {avg_evs_per_hour:.12f}")
+print()
+display(slide_table_df.head(10))
+slide_table_df.to_csv("results/t1_ev_charging_table.csv", index=False)"""))
+
+    cells.append(make_code_cell("""# 📊 Step 5.3: Diagnostic Plots - Full Test Window & 7-Day Zoom
 test_timestamps = test_df.index
 
 fig, axes = plt.subplots(2, 1, figsize=(14, 8))

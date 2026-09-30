@@ -1,0 +1,95 @@
+{
+    "model": "1-Hour Ahead QNN / QLSTM",
+    "forecast_horizon": "1 hour ahead (t+1)",
+    "metrics": {
+        "MAE": 5.2927,
+        "MAPE_pct": 47.7245,
+        "SMAPE_pct": 67.6302,
+        "Normalized_MAE_pct": 12.6952,
+        "Normalized_RMSE_pct": 18.8818,
+        "R2": 0.974474
+    },
+    "average_evs_chargeable_per_hour": 0.726955,
+    "sample_table_head": [
+        {
+            "datetime": "2024-06-03 19:00:00",
+            "Actual_Renewable": 2.9,
+            "QNN_Predicted_Renewable": 2.63,
+            "Absolute_Error": 0.23,
+            "Percentage_Error": 8.041958,
+            "Num_EVs_Charged": 0.043833
+        },
+        {
+            "datetime": "2024-06-03 20:00:00",
+            "Actual_Renewable": 2.1,
+            "QNN_Predicted_Renewable": 6.7,
+            "Absolute_Error": 4.64,
+            "Percentage_Error": 225.242718,
+            "Num_EVs_Charged": 0.111667
+        },
+        {
+            "datetime": "2024-06-03 21:00:00",
+            "Actual_Renewable": 0.3,
+            "QNN_Predicted_Renewable": 5.26,
+            "Absolute_Error": 4.96,
+            "Percentage_Error": 1653.333333,
+            "Num_EVs_Charged": 0.087667
+        },
+        {
+            "datetime": "2024-06-03 22:00:00",
+            "Actual_Renewable": 2.8,
+            "QNN_Predicted_Renewable": 4.23,
+            "Absolute_Error": 1.43,
+            "Percentage_Error": 51.071429,
+            "Num_EVs_Charged": 0.0705
+        },
+        {
+            "datetime": "2024-06-03 23:00:00",
+            "Actual_Renewable": 1.6,
+            "QNN_Predicted_Renewable": 1.78,
+            "Absolute_Error": 0.18,
+            "Percentage_Error": 11.25,
+            "Num_EVs_Charged": 0.029667
+        },
+        {
+            "datetime": "2024-06-04 00:00:00",
+            "Actual_Renewable": 0.3,
+            "QNN_Predicted_Renewable": 9.28,
+            "Absolute_Error": 9.0,
+            "Percentage_Error": 3214.285714,
+            "Num_EVs_Charged": 0.154667
+        },
+        {
+            "datetime": "2024-06-04 01:00:00",
+            "Actual_Renewable": 51.8,
+            "QNN_Predicted_Renewable": 46.22,
+            "Absolute_Error": 5.55,
+            "Percentage_Error": 10.720494,
+            "Num_EVs_Charged": 0.770333
+        },
+        {
+            "datetime": "2024-06-04 02:00:00",
+            "Actual_Renewable": 19.2,
+            "QNN_Predicted_Renewable": 11.85,
+            "Absolute_Error": 7.39,
+            "Percentage_Error": 38.409563,
+            "Num_EVs_Charged": 0.1975
+        },
+        {
+            "datetime": "2024-06-04 03:00:00",
+            "Actual_Renewable": 53.9,
+            "QNN_Predicted_Renewable": 69.59,
+            "Absolute_Error": 15.66,
+            "Percentage_Error": 29.037641,
+            "Num_EVs_Charged": 1.159833
+        },
+        {
+            "datetime": "2024-06-04 04:00:00",
+            "Actual_Renewable": 0.0,
+            "QNN_Predicted_Renewable": 3.35,
+            "Absolute_Error": 3.35,
+            "Percentage_Error": 0.0,
+            "Num_EVs_Charged": 0.055833
+        }
+    ]
+}
